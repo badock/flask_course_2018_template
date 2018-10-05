@@ -1,0 +1,13 @@
+{% extends "layout.html.jinja2" %}
+
+{% block body %}
+<form action="{{ url_for("process_employee_form_function") }}" method="post">
+    <input name="id" type="hidden" value="{{ employee_id }}">
+
+    <input name="firstname" type="text" placeholder="firstname" value="{{ firstname }}">
+    <input name="lastname" type="text" placeholder="lastname"  value="{{ lastname }}">
+    <input name="division" type="text" placeholder="division" value="{{ division }}">
+
+    <input type=submit>
+</form>
+{% endblock %}
