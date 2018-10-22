@@ -11,6 +11,11 @@ project_name_prefix = ["Incredible", "Fantastic", "Big", "Magic", "Better"]
 project_name_suffix = ["Leap", "Jump", "Revolution", "World", "Configuration"]
 
 if __name__ == "__main__":
+    # Create the DB
+    from database import db
+    print("creating database")
+    db.create_all()
+    print("database created")
 
     employees = []
 

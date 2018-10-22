@@ -2,7 +2,9 @@
 
 {% block body %}
 <form action="{{ url_for("process_employee_form_function") }}" method="post">
-    <input name="id" type="hidden" value="{{ employee_id }}">
+    {% if employee_id is defined %}
+        <input name="id" type="hidden" value="{{ employee_id }}">
+    {% endif %}
 
     <input name="firstname" type="text" placeholder="firstname" value="{{ firstname }}">
     <input name="lastname" type="text" placeholder="lastname"  value="{{ lastname }}">

@@ -18,17 +18,10 @@ class Employee(db.Model):
 
     division = db.Column(db.Text)
 
-    projects = db.relationship(
-        "Project",
-        secondary=association_table,
-        back_populates="employees")
-
 
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text)
 
-    employees = db.relationship(
-        "Employee",
-        secondary=association_table,
-        back_populates="projects")
+    employees = db.relationship('Employee', secondary=association_table, lazy='subquery',
+        backref=db.backref('projects', lazy=True))
